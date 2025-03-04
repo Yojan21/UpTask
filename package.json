@@ -1,0 +1,20 @@
+{
+  "name": "uptask-php-mvc-sass",
+  "version": "1.0.0",
+  "description": "UpTask - Curso Desarrollo web Completo",
+  "author": "Yojan Romero",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "gulp"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^5.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-terser": "^2.1.0",
+    "plumber": "^0.4.8",
+    "sass": "^1.75.0"
+  }
+}
