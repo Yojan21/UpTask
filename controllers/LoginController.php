@@ -2,8 +2,10 @@
 
 namespace Controllers;
 
-use Model\Usuario;
 use MVC\Router;
+use Classes\Email;
+use Model\Usuario;
+use PDO;
 
 class LoginController{
 
@@ -53,6 +55,10 @@ class LoginController{
 
                     //CREAR UN NUEVO USUARIO
                     $resultado = $usuario->guardar();
+
+                    //ENVIAR EMAIL
+                    $email = new Email($usuario->email, $usuario->nombre, $usuario->token);
+                    $email->enviarConfirmacion();
 
                     if($resultado){
                         header('Location: /mensaje');
@@ -106,10 +112,30 @@ class LoginController{
 
     public static function confirmar(Router $router){
         
+        $token = s($_GET['token']);
+        if(!$token){
+            header('Location: /');
+        }
+
+        //Encontrar al usuario
+        $usuario = Usuario::where('token', $token);
+
+        if(empty($usuario)){
+            Usuario::setAlerta('error', 'Token no Valido');
+        }else{
+            $usuario->confirmado = 1;
+            $usuario->token = null;
+            unset($usuario->password2);
+
+            $usuario->guardar();
+            Usuario::setAlerta('exito', 'Hemos comprobado tu cuenta');
+        }
+        $alertas = Usuario::getAlertas();
         
         //RENDER A LA VISTA
         $router->render('auth/confirmar', [
-            'titulo' => 'Restablecer Contraseña'
+            'titulo' => 'Confirma tu cuenta UpTask',
+            'alertas' => $alertas
         ]);
     }
 }

@@ -14,4 +14,9 @@
         background-color: color.adjust(v.$rojo, $lightness:50%);
         border-left: 5px solid v.$rojo;
     }
+
+    &.exito{
+        background-color: color.adjust(v.$verde, $lightness:50%);
+        border-left: 5px solid v.$verde;
+    }
 }
