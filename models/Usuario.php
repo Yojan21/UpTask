@@ -18,6 +18,27 @@ class Usuario extends ActiveRecord{
         $this->confirmado = $args['confirmado'] ?? 0;
     }
 
+    //VALIDAR EL LOGIN
+    public function validarLogin(){
+        if(!$this->email){
+            self::$alertas['error'][] = 'El Email del Usuario es obligatorio';
+        }
+        
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
+            self::$alertas['error'][] = 'El Email no es valido';
+        }
+
+        if(!$this->password){
+            self::$alertas['error'][] = 'La Contraseña del Usuario es obligatoria';
+        }
+
+        if(strlen($this->password) < 6){
+            self::$alertas['error'][] = 'La Contraseña debe tener por lo menos 6 caracteres';
+        }
+
+        return self::$alertas;
+    }
+
     //VALIDACION PARA CUENTAS NUEVAS->GENERACION DE ALERTAS
     public function validadNuevaCuenta(){
         if(!$this->nombre){
@@ -38,6 +59,31 @@ class Usuario extends ActiveRecord{
 
         if($this->password !== $this->password2){
             self::$alertas['error'][] = 'La Contraseñas no coinciden';
+        }
+
+        return self::$alertas;
+    }
+
+    //VALIDA UN EMAIL
+    public function validarEmail(){
+        if(!$this->email){
+            self::$alertas['error'][] = 'El Email es Obligatorio';
+        }
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
+            self::$alertas['error'][] = 'El Email no es valido';
+        }
+
+        return self::$alertas;
+    }
+
+    //VALIDA NUEVO PASSWORD
+    public function validarPassword(){
+        if(!$this->password){
+            self::$alertas['error'][] = 'La Contraseña del Usuario es obligatoria';
+        }
+
+        if(strlen($this->password) < 6){
+            self::$alertas['error'][] = 'La Contraseña debe tener por lo menos 6 caracteres';
         }
 
         return self::$alertas;

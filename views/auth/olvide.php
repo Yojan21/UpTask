@@ -1,10 +1,11 @@
 <div class="contenedor olvide">
 <?php include_once __DIR__ . '/../templates/nombre_sitio.php'; ?>
 
+
     <div class="contenedor-sm">
         <p class="descripcion_pagina">Restaura tu Contraseña</p>
-
-        <form method="POST" action="/olvide" class="formulario">
+        <?php include_once __DIR__ . '/../templates/alertas.php'; ?>
+        <form method="POST" action="/olvide" class="formulario" novalidate>
 
             <div class="campo">
                 <label for="email">Email</label>
