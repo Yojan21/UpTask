@@ -1,0 +1,11 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+@use 'sass:color';
+
+.contenedor_nueva_tarea{
+    display: flex;
+    justify-content: center;
+    .agregar_tarea{
+        @include m.boton(v.$cyan, v.$blanco);
+    }
+}
