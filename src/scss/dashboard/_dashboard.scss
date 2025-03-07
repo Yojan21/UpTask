@@ -38,4 +38,11 @@
             }
         }
     }
+
+    .enlace{
+        color: v.$indigo;
+        &:hover{
+            color: color.adjust(v.$indigo, $lightness: -20%);
+        }
+    }
 }

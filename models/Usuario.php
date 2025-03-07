@@ -14,6 +14,8 @@ class Usuario extends ActiveRecord{
         $this->email = $args['email'] ?? '';
         $this->password = $args['password'] ?? '';
         $this->password2 = $args['password2'] ?? '';
+        $this->password_actual = $args['password_actual'] ?? '';
+        $this->password_nuevo = $args['password_nuevo'] ?? '';
         $this->token = $args['token'] ?? '';
         $this->confirmado = $args['confirmado'] ?? 0;
     }
@@ -89,13 +91,47 @@ class Usuario extends ActiveRecord{
         return self::$alertas;
     }
 
+    //VALIDA LOS CASMPOS DE /PERFIL
+    public function validarPerfil(){
+        if(!$this->nombre){
+            self::$alertas['error'][] = 'El Nombre es Obligatorio';
+        }
+        if(!$this->email){
+            self::$alertas['error'][] = 'El Email es Obligatorio';
+        }
+        if(!filter_var($this->email, FILTER_VALIDATE_EMAIL)){
+            self::$alertas['error'][] = 'El Email no es valido';
+        }
+
+        return self::$alertas;
+    }
+
+    public function nuevoPassword(){
+        if(!$this->password_actual){
+            self::$alertas['error'][] = 'Todos los campos son obligatorios';
+        }
+
+        if(!$this->password_nuevo){
+            self::$alertas['error'][] = 'Todos los campos son obligatorios';
+        }
+
+        if(strlen($this->password_nuevo) < 6){
+            self::$alertas['error'][] = 'La Contraseña debe tener por lo menos 6 caracteres';
+        }
+        return self::$alertas;
+    }
+
+    public function comprobarPassword() : bool{
+        return password_verify($this->password_actual, $this->password);
+    }
+
     //HASEA EL PASSWORD
-    public function hashPassword(){
+    public function hashPassword() : void{
         $this->password = password_hash($this->password, PASSWORD_BCRYPT);
     }   
 
     //GENERAR EL TOKEN
-    public function generarToken(){
+    public function generarToken() : void{
         $this->token = uniqid();
     }
 }
