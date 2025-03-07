@@ -56,11 +56,9 @@
     }
 
     .cerrar_sesion{
+        font-size: 2rem;
+        padding: 1rem;
+        border-radius: .5rem;
         @include m.boton(color.adjust(v.$indigo, $lightness:-10%), v.$blanco);
-        &{
-            font-size: 1.4rem;
-            padding: 1rem;
-            border-radius: .5rem;
-        }
     }
 }

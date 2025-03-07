@@ -61,7 +61,7 @@
         }
         .cerrar_sesion{
             padding: 1rem;
-            font-size: 1.2rem;
+            font-size: 2rem;
             @include m.boton(v.$naranja, v.$blanco)
         }
     }
