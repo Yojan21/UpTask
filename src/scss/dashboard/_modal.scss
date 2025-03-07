@@ -51,7 +51,11 @@
             }
         }
         .cerrar_modal{
-            @include m.boton(v.$naranja, v.$blanco)
+            @include m.boton(v.$naranja, v.$blanco);
+            &{
+                text-transform: uppercase;
+                font-size: 1.4rem;
+            }
         }
         
         &.animar{
