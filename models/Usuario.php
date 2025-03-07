@@ -21,7 +21,7 @@ class Usuario extends ActiveRecord{
     }
 
     //VALIDAR EL LOGIN
-    public function validarLogin(){
+    public function validarLogin() : array{
         if(!$this->email){
             self::$alertas['error'][] = 'El Email del Usuario es obligatorio';
         }
@@ -42,7 +42,7 @@ class Usuario extends ActiveRecord{
     }
 
     //VALIDACION PARA CUENTAS NUEVAS->GENERACION DE ALERTAS
-    public function validadNuevaCuenta(){
+    public function validadNuevaCuenta() : array{
         if(!$this->nombre){
             self::$alertas['error'][] = 'El nombre del Usuario es obligatorio';
         }
@@ -67,7 +67,7 @@ class Usuario extends ActiveRecord{
     }
 
     //VALIDA UN EMAIL
-    public function validarEmail(){
+    public function validarEmail() : array{
         if(!$this->email){
             self::$alertas['error'][] = 'El Email es Obligatorio';
         }
@@ -79,7 +79,7 @@ class Usuario extends ActiveRecord{
     }
 
     //VALIDA NUEVO PASSWORD
-    public function validarPassword(){
+    public function validarPassword() : array{
         if(!$this->password){
             self::$alertas['error'][] = 'La Contraseña del Usuario es obligatoria';
         }
@@ -92,7 +92,7 @@ class Usuario extends ActiveRecord{
     }
 
     //VALIDA LOS CASMPOS DE /PERFIL
-    public function validarPerfil(){
+    public function validarPerfil() : array{
         if(!$this->nombre){
             self::$alertas['error'][] = 'El Nombre es Obligatorio';
         }
@@ -106,7 +106,7 @@ class Usuario extends ActiveRecord{
         return self::$alertas;
     }
 
-    public function nuevoPassword(){
+    public function nuevoPassword() : array{
         if(!$this->password_actual){
             self::$alertas['error'][] = 'Todos los campos son obligatorios';
         }
