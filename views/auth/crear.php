@@ -1,6 +1,8 @@
 <div class="contenedor crear">
     
-<?php include_once __DIR__ . '/../templates/nombre_sitio.php'; ?>
+<?php include_once __DIR__ . '/../templates/nombre_sitio.php'; 
+$descripcion = 'Interfaz para crear cuenta ';
+?>
 
     <div class="contenedor-sm">
         <p class="descripcion_pagina">Crea tu cuenta en UpTask</p>

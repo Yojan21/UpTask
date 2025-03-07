@@ -1,4 +1,6 @@
-<?php include_once __DIR__ . '/header_dashboard.php'; ?>
+<?php include_once __DIR__ . '/header_dashboard.php'; 
+$descripcion = 'Interfaz para que el usuario pueda crear proyectos ';
+?>
 
 <div class="contenedor_sm">
     <?php include_once __DIR__ . '/../templates/alertas.php'; ?>

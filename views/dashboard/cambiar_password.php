@@ -1,4 +1,6 @@
-<?php include_once __DIR__ . '/header_dashboard.php'; ?>
+<?php include_once __DIR__ . '/header_dashboard.php'; 
+$descripcion = 'Pagina para cambiar la contraseña de la cuenta'
+?>
 
 <div class="contenedor-sm">
 <?php include_once __DIR__ . '/../templates/alertas.php'; ?>

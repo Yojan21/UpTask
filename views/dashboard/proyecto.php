@@ -1,4 +1,6 @@
-<?php include_once __DIR__ . '/header_dashboard.php'; ?>
+<?php include_once __DIR__ . '/header_dashboard.php'; 
+$descripcion = 'Interfaz para visualizar las tareas de determinado proyecto ';
+?>
 
 <div class="contenedor_sm">
     <div class="contenedor_nueva_tarea">

@@ -1,4 +1,6 @@
-<?php include_once __DIR__ . '/header_dashboard.php'; ?>
+<?php include_once __DIR__ . '/header_dashboard.php'; 
+$descripcion = 'Pagina principal del dashboard, se puede observar diversos botones ';
+?>
 
     <?php if(count($proyectos) === 0){?>
         <p class="no_proyectos">Aún no hay proyectos <a href="/crear_proyecto">Crea uno</a></p>

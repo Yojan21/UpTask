@@ -1,5 +1,7 @@
 <div class="contenedor olvide">
-<?php include_once __DIR__ . '/../templates/nombre_sitio.php'; ?>
+<?php include_once __DIR__ . '/../templates/nombre_sitio.php'; 
+$descripcion = 'Interfaz para solicitar el cambio de contraseña ';
+?>
 
 
     <div class="contenedor-sm">

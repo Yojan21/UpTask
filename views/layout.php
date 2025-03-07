@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UpTask | <?php echo $titulo ?? '';  ?></title>
+    <?php
+    // Definir la descripción dinámicamente
+    $descripcion = "Esta es la descripción de mi página web. Puede ser dinámica según el contenido.";
+    ?>
+    <meta name="description" content="<?php echo htmlspecialchars($descripcion); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Open+Sans&display=swap" rel="stylesheet"> 

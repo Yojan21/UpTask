@@ -1,5 +1,7 @@
 <div class="contenedor restablecer">
-<?php include_once __DIR__ . '/../templates/nombre_sitio.php'; ?>
+<?php include_once __DIR__ . '/../templates/nombre_sitio.php'; 
+$descripcion = 'Interfaz para agregar la contraseña nueva si se ha olvidado ';
+?>
 
     <div class="contenedor-sm">
         <p class="descripcion_pagina">Ingresa tu nueva Contraseña</p>
